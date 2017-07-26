@@ -35,6 +35,7 @@ const HEROES: Hero[] = [
   </li>
   </ul>
   <!--referred hero's name property to class Hero-->
+  <div *ngIf="selectedHero">
   <!--Add a click handler to expose the selected hero-->
   <h2>{{selectedHero.name}} details!</h2>
   <!--Added HTML with multi-line template strings-->
@@ -42,6 +43,7 @@ const HEROES: Hero[] = [
   <div>
   <label>name: </label>
   <input [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
   </div>
   `,
   styles: [` .selected {
