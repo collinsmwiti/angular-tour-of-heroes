@@ -26,22 +26,23 @@ const HEROES: Hero[] = [
   styleUrls: ['./app.component.css'],
   template: `
   <h1>{{title}}</h1>
-  <!--referred hero's name property to class Hero-->
-  <!--<h2>{{hero.name}} details!</h2>-->
   <!--Display the hero's names-->
   <h2>My Heroes</h2>
   <ul class="heroes">
-  <li *ngFor="let hero of heroes">
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
   <!--Each hero goes here -->
   <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
   </ul>
+  <!--referred hero's name property to class Hero-->
+  <!--Add a click handler to expose the selected hero-->
+  <h2>{{selectedHero.name}} details!</h2>
   <!--Added HTML with multi-line template strings-->
-  <!--<div><label>id: </label>{{hero.id}}</div>-->
-  <!--<div>-->
-  <!--<label>name: </label> -->
-  <!--<input [(ngModel)]="hero.name" placeholder="name">-->
-  <!--</div>-->
+  <div><label>id: </label>{{selectedHero.id}}</div>
+  <div>
+  <label>name: </label>
+  <input [(ngModel)]="selectedHero.name" placeholder="name">
+  </div>
   `,
   styles: [` .selected {
     background-color: #CFD8DC !important;
@@ -102,11 +103,17 @@ const HEROES: Hero[] = [
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-
+  //to expose heroes
+  heroes = HEROES;
+  //inorder for user to select their heroes by clicking on them
+  selectedHero: Hero;
+  //adding onSelect method that sets selectedHero property to the hero that the user clicks
+  onSelect(hero: Hero): void {
+   this.selectedHero = hero;
+ }
   // hero: Hero = {
   //   id: 1,
   //   name: 'Windstorm',
   // };
-  //to expose heroes
-  heroes = HEROES;
+
 }
