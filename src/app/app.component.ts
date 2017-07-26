@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -77,7 +78,7 @@ import { HeroService } from './hero.service';
 //adding providers
 providers: [HeroService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Tour of Heroes';
   //to expose heroes
   // heroes = HEROES;
@@ -94,6 +95,11 @@ export class AppComponent {
   //adding onSelect method that sets selectedHero property to the hero that the user clicks
   onSelect(hero: Hero): void {
    this.selectedHero = hero;
+ }
+
+//to fetch and display hero data with no issues
+ ngOnInit(): void {
+   this.getHeroes();
  }
 
 }
