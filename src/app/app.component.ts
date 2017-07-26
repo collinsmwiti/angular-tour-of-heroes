@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-//class Hero
-export class Hero {
-  id: number;
-  name: string;
-}
+import { Hero } from './hero';
 
 //array of heroes
 const HEROES: Hero[] = [
@@ -34,17 +29,6 @@ const HEROES: Hero[] = [
   <span class="badge">{{hero.id}}</span> {{hero.name}}
   </li>
   </ul>
-  <!--referred hero's name property to class Hero-->
-  <div *ngIf="selectedHero">
-  <!--Add a click handler to expose the selected hero-->
-  <h2>{{selectedHero.name}} details!</h2>
-  <!--Added HTML with multi-line template strings-->
-  <div><label>id: </label>{{selectedHero.id}}</div>
-  <div>
-  <label>name: </label>
-  <input [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
-  </div>
   `,
   styles: [` .selected {
     background-color: #CFD8DC !important;
@@ -107,7 +91,6 @@ export class AppComponent {
   title = 'Tour of Heroes';
   //to expose heroes
   heroes = HEROES;
-  //inorder for user to select their heroes by clicking on them
   selectedHero: Hero;
   //adding onSelect method that sets selectedHero property to the hero that the user clicks
   onSelect(hero: Hero): void {
