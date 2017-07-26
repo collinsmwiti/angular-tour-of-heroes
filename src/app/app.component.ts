@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
 
   //calling the service
   getHeroes(): void {
-  this.heroes = this.heroService.getHeroes();
+  this.heroService.getHeroes().then(heroes => this.heroes = heroes);
 }
 
   //adding onSelect method that sets selectedHero property to the hero that the user clicks
