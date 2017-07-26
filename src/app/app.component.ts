@@ -6,6 +6,7 @@ export class Hero {
   name: string;
 }
 
+//array of heroes
 const HEROES: Hero[] = [
   { id: 11, name: 'Mr. Nice' },
 { id: 12, name: 'Narco' },
@@ -26,20 +27,29 @@ const HEROES: Hero[] = [
   template: `
   <h1>{{title}}</h1>
   <!--referred hero's name property to class Hero-->
-  <h2>{{hero.name}} details!</h2>
+  <!--<h2>{{hero.name}} details!</h2>-->
+  <!--Display the hero's names-->
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+  <li>
+  <!--Each hero goes here -->
+  </li>
+  </ul>
   <!--Added HTML with multi-line template strings-->
-  <div><label>id: </label>{{hero.id}}</div>
-  <div>
-  <label>name: </label>
-  <input [(ngModel)]="hero.name" placeholder="name">
-  </div>
+  <!--<div><label>id: </label>{{hero.id}}</div>-->
+  <!--<div>-->
+  <!--<label>name: </label> -->
+  <!--<input [(ngModel)]="hero.name" placeholder="name">-->
+  <!--</div>-->
   `
 })
 export class AppComponent {
   title = 'Tour of Heroes';
+
   // hero: Hero = {
   //   id: 1,
   //   name: 'Windstorm',
   // };
+  //to expose heroes
   heroes = HEROES;
 }
